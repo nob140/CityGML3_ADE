@@ -10,7 +10,7 @@ ADE:
 CityGML Data:
 - Tokyo Station in 53394611_bldg_6697_op2.gml and Meiji Memorial Picture Gallery in 53394517_bldg_6697_op2.gml from  [Project PLATEAU](https://www.geospatial.jp/ckan/dataset/plateau-tokyo23ku)
 - Note:
-  - All data are validated by VS Code and XML Extension by Red Hat (checking syntaxs errors). uro:buildingDetails is not validated, so please let me know if you find any problem!
-  - i-UR 1.5 is same as i-UR 1.4 except for namespace URL (due to change of Japanese government server). WHile original PLATEAU data was using ADE i-UR 1.4, but converted test data is modified using i-UR 1.5 by modifying URL.
+  - All data are validated by VS Code and XML Extension by Red Hat (checking syntaxs errors). However uro:buildingDetails was not validated, so please let me know if you find any problem!
+  - i-UR 1.5 is same as i-UR 1.4 except for namespace URL (due to change of Japanese government server). Though original data of Project PLATEAU is using ADE i-UR 1.4, the URL of namespace "uro" were modified for using converted i-UR 1.5 ADE.
 - [Tokyo Station](https://github.com/nob140/CityGML3_ADE/blob/main/53394611_bldg_6697_op2_CityGML3.gml) (Mesh ID: 53894611, Building ID: 13101-bldg-871) ![Original CityGML 2.0 image](53394611_bldg_6697_TokyoStation_CityGML2.png) ![Converted CityGML 3.0 image](53394611_bldg_6697_TokyoStation_CityGML3.png)
 - [Meiji Memorial Picture Gallery](https://github.com/nob140/CityGML3_ADE/blob/main/53394517_bldg_6697_op2_CityGML3.gml) (Mesh ID: 53394517, Building ID: 13104-bldg-53) ![Original CityGML 2.0 image](53394517_bldg_6697_MeijiMemorialPictureGallery_CityGML2.png) ![Converted CityGML 3.0 image](53394517_bldg_6697_MeijiMemorialPictureGallery_CityGML3.png)
