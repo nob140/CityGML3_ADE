@@ -8,7 +8,7 @@ ADE:
 - Note: luse and tran were not tested and validated.
 
 CityGML Data:
-- Tokyo Station in 53394611_bldg_6697_op2.gml and Meiji Memorial Picture Gallery in 53394517_bldg_6697_op2.gml from  [Project PLATEAU](https://www.geospatial.jp/ckan/dataset/plateau-tokyo23ku)
+- Tokyo Station in 53394611_bldg_6697_op2.gml and Meiji Memorial Picture Gallery in 53394517_bldg_6697_op2.gml from  [Project PLATEAU](https://www.geospatial.jp/ckan/dataset/plateau-tokyo23ku) (CC BY 4.0)
 - Note:
   - All data are validated by VS Code and XML Extension by Red Hat (checking syntaxs errors). However uro:buildingDetails was not validated, so please let me know if you find any problem!
   - i-UR 1.5 is same as i-UR 1.4 except for namespace URL (due to change of Japanese government server). Though original data of Project PLATEAU is using ADE i-UR 1.4, the URL of namespace "uro" were modified for using converted i-UR 1.5 ADE.
