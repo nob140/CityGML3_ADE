@@ -3,7 +3,7 @@
 ADE conversion test from CityGML 2.0 ADE to CityGML 3.0 ADE
 
 ADE:
-- Source: [urbanObject.xsd v1.5](https://www.chisou.go.jp/tiiki/toshisaisei/itoshisaisei/iur/schemas/uro/1.5/urbanObject.xsd) (Urban Object Module) from [i-Urban Revitalization](https://www.chisou.go.jp/tiiki/toshisaisei/itoshisaisei/iur/index.html) (aka Urban Planning ADE)
+- Source: [urbanObject.xsd v1.5](https://www.chisou.go.jp/tiiki/toshisaisei/itoshisaisei/iur/schemas/uro/1.5/urbanObject.xsd) (Urban Object Module) from [i-Urban Revitalization](https://www.chisou.go.jp/tiiki/toshisaisei/itoshisaisei/iur/index.html) (aka i-uR, Urban Planning ADE)
 - Converted ADE: [urbanObject_CityGML3.xsd](https://github.com/nob140/CityGML3_ADE/blob/main/urbanObject_CityGML3.xsd)
 - Note: luse and tran were not tested and validated.
 
