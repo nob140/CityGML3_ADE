@@ -17421,15 +17421,19 @@ xsi:schemaLocation="https://www.chisou.go.jp/tiiki/toshisaisei/itoshisaisei/iur/
 					</core:xalAddress>
 				</core:Address>
 			</bldg:address>
-			<uro:buildingDetails>
-				<uro:BuildingDetails>
-					<uro:buildingRoofEdgeArea uom="m2">8094.46400</uro:buildingRoofEdgeArea>
-					<uro:districtsAndZonesType codeSpace="../../codelists/Common_districtsAndZonesType.xml">10</uro:districtsAndZonesType>
-					<uro:prefecture codeSpace="../../codelists/Common_prefecture.xml">13</uro:prefecture>
-					<uro:city codeSpace="../../codelists/Common_localPublicAuthorities.xml">13101</uro:city>
-					<uro:surveyYear>2016</uro:surveyYear>
-				</uro:BuildingDetails>
-			</uro:buildingDetails>
+			<bldg:adeOfAbstractBuilding>
+				<uro:BuildingProperties>
+					<uro:buildingDetails>
+						<uro:BuildingDetails>
+							<uro:buildingRoofEdgeArea uom="m2">8094.46400</uro:buildingRoofEdgeArea>
+							<uro:districtsAndZonesType codeSpace="../../codelists/Common_districtsAndZonesType.xml">10</uro:districtsAndZonesType>
+							<uro:prefecture codeSpace="../../codelists/Common_prefecture.xml">13</uro:prefecture>
+							<uro:city codeSpace="../../codelists/Common_localPublicAuthorities.xml">13101</uro:city>
+							<uro:surveyYear>2016</uro:surveyYear>
+						</uro:BuildingDetails>
+					</uro:buildingDetails>
+				</uro:BuildingProperties>
+			</bldg:adeOfAbstractBuilding>
 		</bldg:Building>
 	</core:cityObjectMember>
 </core:CityModel>
