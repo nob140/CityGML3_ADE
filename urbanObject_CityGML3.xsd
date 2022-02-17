@@ -39,18 +39,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="buildingDetails" type="uro:BuildingDetailsPropertyType"/>
-	<xs:complexType name="BuildingDetailsPropertyType">
-		<xs:complexContent>
-			<xs:extension base="bldg:ADEOfAbstractBuildingPropertyType">
-				<xs:sequence>
-					<xs:element ref="uro:BuildingDetails"/>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<!-- ===================================================================== -->
-	<xs:element name="largeCustomerFacilities" type="uro:LargeCustomerFacilitiesPropertyType"/>
 	<!-- ===================================================================== -->
 	<xs:element name="LargeCustomerFacilities" type="uro:LargeCustomerFacilitiesType" substitutionGroup="bldg:ADEOfAbstractBuilding"/>
 	<xs:complexType name="LargeCustomerFacilitiesType">
@@ -79,34 +67,42 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:complexType name="LargeCustomerFacilitiesPropertyType">
+	<!-- ==================== Extended attribute for Land Use =============== -->
+	<xs:element name="LandUseProperties" type="uro:LandUsePropertiesType" substitutionGroup="luse:ADEOfLandUse"/>
+	<xs:complexType name="LandUsePropertiesType">
 		<xs:complexContent>
-			<xs:extension base="bldg:ADEOfAbstractBuildingPropertyType">
+			<xs:extension base="luse:ADEOfLandUseType">
 				<xs:sequence>
-					<xs:element ref="uro:LargeCustomerFacilities"/>
+					<xs:element name="nominalArea" type="gml:MeasureType"/>
+					<xs:element name="ownerType" type="gml:CodeType"/>
+					<xs:element name="owner" type="xs:string"/>
+					<xs:element name="areaInSquareMeter" type="gml:MeasureType"/>
+					<xs:element name="areaInHa" type="gml:MeasureType"/>
+					<xs:element name="urbanPlanType" type="gml:CodeType"/>
+					<xs:element name="districtsAndZonesType" type="gml:CodeType"/>
+					<xs:element name="landUsePlanType" type="gml:CodeType"/>
+					<xs:element name="areaClassificationType" type="gml:CodeType"/>
+					<xs:element name="prefecture" type="gml:CodeType"/>
+					<xs:element name="city" type="gml:CodeType"/>
+					<xs:element name="reference" type="xs:string"/>
+					<xs:element name="note" type="xs:string"/>
+					<xs:element name="surveyYear" type="xs:gYear"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<!-- ==================== Extended attribute for Land Use =============== -->
-	<xs:element name="nominalArea" type="gml:MeasureType" substitutionGroup="luse:ADEOfLandUse"/>
-	<xs:element name="ownerType" type="gml:CodeType" substitutionGroup="luse:ADEOfLandUse"/>
-	<xs:element name="owner" type="xs:string" substitutionGroup="luse:ADEOfLandUse"/>
-	<xs:element name="areaInSquareMeter" type="gml:MeasureType" substitutionGroup="luse:ADEOfLandUse"/>
-	<xs:element name="areaInHa" type="gml:MeasureType" substitutionGroup="luse:ADEOfLandUse"/>
-	<xs:element name="urbanPlanType" type="gml:CodeType" substitutionGroup="luse:ADEOfLandUse"/>
-	<xs:element name="districtsAndZonesType" type="gml:CodeType" substitutionGroup="luse:ADEOfLandUse"/>
-	<xs:element name="landUsePlanType" type="gml:CodeType" substitutionGroup="luse:ADEOfLandUse"/>
-	<xs:element name="areaClassificationType" type="gml:CodeType" substitutionGroup="luse:ADEOfLandUse"/>
-	<xs:element name="prefecture" type="gml:CodeType" substitutionGroup="luse:ADEOfLandUse"/>
-	<xs:element name="city" type="gml:CodeType" substitutionGroup="luse:ADEOfLandUse"/>
-	<xs:element name="reference" type="xs:string" substitutionGroup="luse:ADEOfLandUse"/>
-	<xs:element name="note" type="xs:string" substitutionGroup="luse:ADEOfLandUse"/>
-	<xs:element name="surveyYear" type="xs:gYear" substitutionGroup="luse:ADEOfLandUse"/>
 	<!-- ===================== Extended attribute for Road  ================= -->
-	<xs:element name="width" type="gml:LengthType" substitutionGroup="tran:ADEOfRoad"/>
-	<xs:element name="widthType" type="gml:CodeType" substitutionGroup="tran:ADEOfRoad"/>
-	<xs:element name="trafficVolume" type="uro:TrafficVolumePropertyType" substitutionGroup="tran:ADEOfRoad"/>
+	<xs:element name="RoadProperties" type="uro:RoadPropertiesType" substitutionGroup="tran:ADEOfRoad"/>
+	<xs:complexType name="RoadPropertiesType">
+		<xs:complexContent>
+			<xs:extension base="tran:ADEOfRoadType">
+				<xs:sequence>
+					<xs:element name="width" type="gml:LengthType"/>
+					<xs:element name="widthType" type="gml:CodeType"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 	<!-- ===================================================================== -->
 	<xs:element name="TrafficVolume" type="uro:TrafficVolumeType" substitutionGroup="tran:ADEOfAbstractTransportationSpace"/>
 	<xs:complexType name="TrafficVolumeType">
@@ -130,16 +126,16 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:complexType name="TrafficVolumePropertyType">
+	<!-- =================== Extended attribute for CityObjectGroup ================= -->
+	<xs:element name="CityObjectGrouProperties" type="uro:CityObjectGrouPropertiesType" substitutionGroup="grp:ADEOfCityObjectGroup"/>
+	<xs:complexType name="CityObjectGrouPropertiesType">
 		<xs:complexContent>
-			<xs:extension base="tran:ADEOfAbstractTransportationSpacePropertyType">
+			<xs:extension base="grp:ADEOfCityObjectGroupType">
 				<xs:sequence>
-					<xs:element ref="uro:TrafficVolume"/>
+					<xs:element name="fiscalYearOfPublication" type="xs:gYear"/>
+					<xs:element name="language" type="gml:CodeType"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<!-- =================== Extended attribute for CityObjectGroup ================= -->
-	<xs:element name="fiscalYearOfPublication" type="xs:gYear" substitutionGroup="grp:ADEOfCityObjectGroup"/>
-	<xs:element name="language" type="gml:CodeType" substitutionGroup="grp:ADEOfCityObjectGroup"/>
 </xs:schema>

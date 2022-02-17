@@ -13035,7 +13035,7 @@ xsi:schemaLocation="https://www.chisou.go.jp/tiiki/toshisaisei/itoshisaisei/iur/
 					</core:xalAddress>
 				</core:Address>
 			</bldg:address>
-			<uro:buildingDetails>
+			<bldg:adeOfAbstractBuilding>
 				<uro:BuildingDetails>
 					<uro:buildingRoofEdgeArea uom="m2">2513.85520</uro:buildingRoofEdgeArea>
 					<uro:districtsAndZonesType codeSpace="../../codelists/Common_districtsAndZonesType.xml">4</uro:districtsAndZonesType>
@@ -13043,7 +13043,7 @@ xsi:schemaLocation="https://www.chisou.go.jp/tiiki/toshisaisei/itoshisaisei/iur/
 					<uro:city codeSpace="../../codelists/Common_localPublicAuthorities.xml">13104</uro:city>
 					<uro:surveyYear>2016</uro:surveyYear>
 				</uro:BuildingDetails>
-			</uro:buildingDetails>
+			</bldg:adeOfAbstractBuilding>
 		</bldg:Building>
 	</core:cityObjectMember>
 </core:CityModel>
