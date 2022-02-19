@@ -5,7 +5,9 @@ ADE conversion test from CityGML 2.0 ADE to CityGML 3.0 ADE
 ADE:
 - Source: [urbanObject.xsd v1.5](https://www.chisou.go.jp/tiiki/toshisaisei/itoshisaisei/iur/schemas/uro/1.5/urbanObject.xsd) (Urban Object Module) from [i-Urban Revitalization](https://www.chisou.go.jp/tiiki/toshisaisei/itoshisaisei/iur/index.html) (aka i-uR, Urban Planning ADE)
 - Converted ADE: [urbanObject_CityGML3.xsd](https://github.com/nob140/CityGML3_ADE/blob/main/urbanObject_CityGML3.xsd)
-- Note: luse and tran were not tested and validated.
+- Note:
+  - Converted manually by @nob140 and @clausnagel
+  - KeyValuePair class is deprecated, and replaced with gen:GenericAttributeSet and gen:genericAttribute
 
 CityGML Data:
 - Tokyo Station in 53394611_bldg_6697_op2.gml and Meiji Memorial Picture Gallery in 53394517_bldg_6697_op2.gml from  [Project PLATEAU](https://www.geospatial.jp/ckan/dataset/plateau-tokyo23ku) (CC BY 4.0)
