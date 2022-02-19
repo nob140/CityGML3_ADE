@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <core:CityModel xmlns:uro="https://www.chisou.go.jp/tiiki/toshisaisei/itoshisaisei/iur/uro/1.5" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:bldg="http://www.opengis.net/citygml/building/3.0" xmlns:con="http://www.opengis.net/citygml/construction/3.0" xmlns:gen="http://www.opengis.net/citygml/generics/3.0" xmlns:app="http://www.opengis.net/citygml/appearance/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xAL="urn:oasis:names:tc:ciq:xal:3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="https://www.chisou.go.jp/tiiki/toshisaisei/itoshisaisei/iur/uro/1.5 ./urbanObject_CityGML3.xsd http://www.opengis.net/citygml/3.0 ../schema/core.xsd http://www.opengis.net/citygml/building/3.0 ../schema/building.xsd http://www.opengis.net/citygml/construction/3.0 ../schema/construction.xsd http://www.opengis.net/citygml/generics/3.0 ../schema/generics.xsd http://www.opengis.net/citygml/appereance/3.0 ../schema/appearance.xsd http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd">
+xsi:schemaLocation="https://www.chisou.go.jp/tiiki/toshisaisei/itoshisaisei/iur/uro/1.5 ./urbanObject_CityGML3.xsd http://www.opengis.net/citygml/3.0 ../schema/core.xsd http://www.opengis.net/citygml/building/3.0 ../schema/building.xsd http://www.opengis.net/citygml/construction/3.0 ../schema/construction.xsd http://www.opengis.net/citygml/generics/3.0 ../schema/generics.xsd http://www.opengis.net/citygml/appearance/3.0 ../schema/appearance.xsd http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd">
 	<gml:boundedBy>
 		<gml:Envelope srsName="http://www.opengis.net/def/crs/EPSG/0/6697" srsDimension="3">
 			<gml:lowerCorner>35.67463773337496 139.71176683323012 16.472</gml:lowerCorner>
@@ -13020,7 +13020,7 @@ xsi:schemaLocation="https://www.chisou.go.jp/tiiki/toshisaisei/itoshisaisei/iur/
 	<core:appearanceMember>
 		<app:Appearance>
 			<app:theme>rgbTexture</app:theme>
-			<app:surfaceDataMember>
+			<app:surfaceData>
 				<app:ParameterizedTexture>
 					<app:imageURI>53394517_bldg_6697_appearance/stad0158.tif</app:imageURI>
 					<app:mimeType>image/tif</app:mimeType>
@@ -13059,7 +13059,7 @@ xsi:schemaLocation="https://www.chisou.go.jp/tiiki/toshisaisei/itoshisaisei/iur/
 						</app:TextureAssociation>
 					</app:textureParameterization>
 				</app:ParameterizedTexture>
-			</app:surfaceDataMember>
+			</app:surfaceData>
 		</app:Appearance>
 	</core:appearanceMember>
 </core:CityModel>

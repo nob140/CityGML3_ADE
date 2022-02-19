@@ -17381,20 +17381,20 @@ xsi:schemaLocation="https://www.chisou.go.jp/tiiki/toshisaisei/itoshisaisei/iur/
 							<uro:surveyYear>2016</uro:surveyYear>
 						</uro:BuildingDetails>
 					</uro:buildingDetails>
+					<uro:extendedAttribute>
+						<uro:KeyValuePair>
+							<uro:key codeSpace="../../codelists/extendedAttribute_key.xml">2</uro:key>
+							<uro:codeValue codeSpace="../../codelists/extendedAttribute_key2.xml">2</uro:codeValue>
+						</uro:KeyValuePair>
+					</uro:extendedAttribute>
+					<uro:extendedAttribute>
+						<uro:KeyValuePair>
+							<uro:key codeSpace="../../codelists/extendedAttribute_key.xml">106</uro:key>
+							<uro:codeValue codeSpace="../../codelists/extendedAttribute_key106.xml">10</uro:codeValue>
+						</uro:KeyValuePair>
+					</uro:extendedAttribute>
 				</uro:BuildingProperties>
 			</bldg:adeOfAbstractBuilding>
-			<uro:extendedAttribute>
-				<uro:KeyValuePair>
-					<uro:key codeSpace="../../codelists/extendedAttribute_key.xml">2</uro:key>
-					<uro:codeValue codeSpace="../../codelists/extendedAttribute_key2.xml">2</uro:codeValue>
-				</uro:KeyValuePair>
-			</uro:extendedAttribute>
-			<uro:extendedAttribute>
-				<uro:KeyValuePair>
-					<uro:key codeSpace="../../codelists/extendedAttribute_key.xml">106</uro:key>
-					<uro:codeValue codeSpace="../../codelists/extendedAttribute_key106.xml">10</uro:codeValue>
-				</uro:KeyValuePair>
-			</uro:extendedAttribute>
 		</bldg:Building>
 	</core:cityObjectMember>
 	<core:appearanceMember>
@@ -17402,38 +17402,38 @@ xsi:schemaLocation="https://www.chisou.go.jp/tiiki/toshisaisei/itoshisaisei/iur/
 			<app:theme>rgbTexture</app:theme>
 			<app:surfaceData>
 				<app:ParameterizedTexture>
-					<app:imageURI>53394517_bldg_6697_appearance/stad0158.tif</app:imageURI>
+					<app:imageURI>53394611_bldg_6697_appearance/tkjp200019.tif</app:imageURI>
 					<app:mimeType>image/tif</app:mimeType>
 					<!-- sample 3 textures -->
 					<app:textureParameterization>
 						<app:TextureAssociation>
-							<app:target>#poly_STAD0158_p1159_0</app:target>
+							<app:target>#poly_TKJP200019_p167_2</app:target>
 							<app:textureParameterization>
 								<app:TexCoordList>
-									<app:textureCoordinates>0.433897 0.9716409 0.4620676 0.9716409 0.4674996 0.9716409 0.483941 0.9716409 0.483941 0.9832935 0.433897 0.9832935 0.433897 0.9716409</app:textureCoordinates>
-									<app:ring>#line_STAD0158_p1159_0"</app:ring>
+									<app:textureCoordinates>0.5451999 0.7693976 0.5451999 0.8009631 0.5318201 0.8009631 0.5318201 0.7693976 0.5451999 0.7693976</app:textureCoordinates>
+									<app:ring>#line_TKJP200019_p167_2</app:ring>
 								</app:TexCoordList>
 							</app:textureParameterization>
 						</app:TextureAssociation>
 					</app:textureParameterization>
 					<app:textureParameterization>
 						<app:TextureAssociation>
-							<app:target>#poly_STAD0158_p1149_4</app:target>
+							<app:target>#poly_TKJP200019_p75_0</app:target>
 							<app:textureParameterization>
 								<app:TexCoordList>
-									<app:textureCoordinates>0.5775048 0.9383026 0.4765625 0.9383026 0.4765625 0.9093079 0.5775048 0.9093079 0.5775048 0.9383026</app:textureCoordinates>
-									<app:ring>#line_STAD0158_p1149_4</app:ring>
+									<app:textureCoordinates>0.8293457 0.4695024 0.8437759 0.4695024 0.8437759 0.4874033 0.8375171 0.4970617 0.8354108 0.4970617 0.8354108 0.4951345 0.8347073 0.4951345 0.8347073 0.6413224 0.8293457 0.6413224 0.8293457 0.4695024</app:textureCoordinates>
+									<app:ring>#line_TKJP200019_p75_0</app:ring>
 								</app:TexCoordList>
 							</app:textureParameterization>
 						</app:TextureAssociation>
 					</app:textureParameterization>
 					<app:textureParameterization>
 						<app:TextureAssociation>
-							<app:target>#poly_STAD0158_p1161_26</app:target>
+							<app:target>#poly_TKJP200019_p168_1</app:target>
 							<app:textureParameterization>
 								<app:TexCoordList>
-									<app:textureCoordinates>0.6020603 0.4933499 0.6053447 0.5112094 0.5911334 0.5346737 0.5854447 0.5037401 0.6020603 0.4933499</app:textureCoordinates>
-									<app:ring>#line_STAD0158_p1161_26</app:ring>
+									<app:textureCoordinates>0.5589292 0.8009631 0.5458984 0.8009631 0.5458984 0.7689863 0.5589292 0.7689863 0.5589292 0.8009631</app:textureCoordinates>
+									<app:ring>#line_TKJP200019_p168_1</app:ring>
 								</app:TexCoordList>
 							</app:textureParameterization>
 						</app:TextureAssociation>
