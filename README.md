@@ -17,7 +17,7 @@ CityGML Data:
   - All data are validated by VS Code and XML Extension by Red Hat (checking syntaxs errors).
   - i-UR 1.5 is same as i-UR 1.4 except for namespace URL (due to change of Japanese government server). Though original data of Project PLATEAU is using ADE i-UR 1.4, the URL of namespace "uro" were modified for using converted i-UR 1.5 ADE.
 
-- Sample 1: Tokyo Station (Mesh ID: 53894611, Building ID: 13101-bldg-871)
+- Sample 1: Tokyo Station (Mesh ID: 53394611, Building ID: 13101-bldg-871)
   - [Using Automatically Converted ADE](https://github.com/nob140/CityGML3_ADE/blob/main/AutomaticConversion/53394611_bldg_6697_op2_CityGML3.gml)
   - [Using Manually Converted ADE](https://github.com/nob140/CityGML3_ADE/blob/main/ManualConversion/53394611_bldg_6697_op2_CityGML3.gml)
 
