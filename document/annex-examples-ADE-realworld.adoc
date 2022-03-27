@@ -8,7 +8,7 @@
 The CityGML 3.0 Conceptual Model introduces the concept of https://docs.ogc.org/is/20-010/20-010.html#toc66[Application Domain Extension (ADE)] to ensure extensibility as in the previous CityGML 2.0.
 The ADE mechanism allows to add new application-specific ADE feature model elements, to inject additional properties to the predefined CityGML feature type, to associate application data with predefined CityGML content, or to define value domains for attributes.
 However, since the CityGML 3.0 specification separates the Conceptual Model and the Encoding, the structure and development method of ADEs differ from those in CityGML 2.0.
-For example, ADE schemas should be derived automatically from the UML conceptual models using software tools same as other GML schemas.
+For example, ADE schemas should be derived fully automatically from the UML conceptual models using software tools same as other CityGML schemas.
 
 In this Annex, examples of ADE generation and data implementation are explained using actual ADE schemas and data of CityGML 2.0, which are published as Open Standard https://www.chisou.go.jp/tiiki/toshisaisei/itoshisaisei/iur/["Data Encoding Specification of i-Urban Revitalization -Urban Planning ADE-"] and Open Data from https://www.mlit.go.jp/plateau/opendata/[the Project PLATEAU] in Japan.
 
@@ -16,25 +16,24 @@ In this Annex, examples of ADE generation and data implementation are explained 
 
 https://www.chisou.go.jp/tiiki/toshisaisei/itoshisaisei/iur/[The Urban Planning ADE] has been published to realize "i-Urban Revitalization", an information infrastructure dedicated for urban planning to contribute to data-driven urban development and urban revitalization. In the Urban Planning ADE, four modules are defined such as Urban Object, Urban Function, Statistical Grid Module, and Public Transit. See https://portal.ogc.org/files/?artifact_id=92113[OGC Discussion Paper (OGC 20-000r1)] and https://doi.org/10.5194/isprs-annals-V-4-2020-179-2020[ISPRS annals] for more information about the Urban Planning ADE.
 
-This example shows how to convert the Urban Object (namespace: uro) ADE of CityGML 2.0 to CityGML 3.0, and inject additional properties to predefined CityGML _Building_ feature type. To avoid complicated ADE (so-called ADE of an ADE) and allow to use multiple distinct ADEs for the same CityGML feature type, CityGML 3.0 specification recommends to inject additional properties to predefined feature type by a mechanism called "hook" rather than defining a new feature type that inherits from a predefined CityGML feature type.
+This example shows how to convert the Urban Object ADE (namespace: uro) of CityGML 2.0 to CityGML 3.0, and inject additional properties to predefined CityGML _Building_ feature type. To avoid complicated ADE (so-called ADE of an ADE) and allow to use multiple distinct ADEs for the same CityGML feature type, CityGML 3.0 specification recommends to inject additional properties to predefined feature type by a mechanism called "hook" rather than defining a new feature type that inherits from a predefined CityGML feature type. The rules are as follows.
 
-. ADE schemas should be designed as UML conceptual models using the software tool https://sparxsystems.com/[Enterprise Architect], and be saved as .epa files.
-. The hook has been implemented as _ADEOf<FeatureTypeName>_ defined for each feature type where _<FeatureTypeName>_ is the name of that feature Type. UML conceptual models should be subclass of the _ADEOf<FeatureTypeName>_ using the stereotype «DataType».
-. UML conceptual models should be implemented as described in the Requirement 50 in subsection 9.5.3 in https://docs.ogc.org/is/20-010/20-010.html#toc66[CityGML 3.0 Conceptual Model].
+. ADE schemas should be designed as UML conceptual models as described in the Requirement 48 and 49 in https://docs.ogc.org/is/20-010/20-010.html#toc71[section 9.5 in CityGML 3.0 Conceptual Model] using the software tool https://sparxsystems.com/[Enterprise Architect], and saved as .epa files.
+. The hook has been implemented as _ADEOf<FeatureTypeName>_ defined for each feature type where _<FeatureTypeName>_ is the name of that feature Type. UML conceptual models should be subclass of the _ADEOf<FeatureTypeName>_ using the stereotype _«DataType»_ as described in the Requirement 50 in  https://docs.ogc.org/is/20-010/20-010.html#toc71[section 9.5 in CityGML 3.0 Conceptual Model].
 
 The example of UML conceptual model is illustrated in <<figure-ADE-realworld-uml1>>.
-Here the DataType _BuildingProperties_ is added to the CityGML _AbstractBuilding_ class by inheritance of _ADEOfAbstractBuilding_. Additionally, DataType _KeyValuePair_ and Union _ValueType_ are defined as well. By using the _BuildingProperties_ that includes two sets of properties _BuildingDetails_ and _LargeCustomerFacilities_, 3D city models can be extended with the detailed properties for urban planning systematically.
+Here the DataType _BuildingProperties_ is added to the CityGML _AbstractBuilding_ class by inheritance of _ADEOfAbstractBuilding_. Additionally, DataType _KeyValuePair_ and Union _ValueType_ are defined as well. By using the _BuildingProperties_ that includes two sets of properties _BuildingDetails_ and _LargeCustomerFacilities_, 3D city models can be extended systematically with the detailed properties for urban planning.
 
 [[figure-ADE-realworld-uml1]]
-.Example of UML conceptual models from Urban Planning ADE.
+.Example of UML conceptual models from Urban Planning ADE designed using Enterprise Architect.
 image::images/ADE-realworld-uml1.png[align="center"]
 
 *Example 2: Deriving ADE schemas from UML conceptual models*
 
-According to the rules below, the ADE schemas should be derived from the UML conceptual model automatically.
+According to the rules below, the ADE schemas should be derived automatically from the UML conceptual models.
 
-. Configuration file should be developed for conversion using https://shapechange.net/[ShapeChange].
-. .eap files should be converted by using ShapeChange.
+. UML conceptual models (.eap files) should be converted into ADE schemas (.xsd files) by using https://shapechange.net/[ShapeChange].
+. Configuration file should be prepared including the file path to the .eap files and other necessary information (e.g. codelists) for conversion using ShapeChange.
 
 The example below shows how to convert the UML conceptual models to ADE schemas by ShapeChange.
 ....
@@ -42,7 +41,7 @@ java -jar ShapeChange-2.11.0.jar -Dfile.encoding=UTF-8 -c ShapeChangeConfigurati
 ....
 
 The example ShapeChange configuration file https://github.com/nob140/CityGML3_ADE/blob/main/AutomaticConversion/ShapeChange/ShapeChangeConfigurationFile_CityGML_3.0_UrbanPlanningADE.xml[ShapeChangeConfigurationFile_CityGML_3.0_UrbanPlanningADE.xml] is illustrated in <<listing-ADE-realworld-shapechange1>>.
-And derived https://github.com/nob140/CityGML3_ADE/blob/main/AutomaticConversion/urbanObject_CityGML3.xsd[ADE schema] from Enterprise Architect UML conceptual models (https://github.com/nob140/CityGML3_ADE/blob/main/AutomaticConversion/UML/CityGML_3.0_UrbanPlanningADE.eap[CityGML_3.0_UrbanPlanningADE.eap]) is illustrated in <<listing-ADE-realworld-ADE1>>.
+And the derived https://github.com/nob140/CityGML3_ADE/blob/main/AutomaticConversion/urbanObject_CityGML3.xsd[ADE schema] from Enterprise Architect UML conceptual models (https://github.com/nob140/CityGML3_ADE/blob/main/AutomaticConversion/UML/CityGML_3.0_UrbanPlanningADE.eap[CityGML_3.0_UrbanPlanningADE.eap]) is illustrated in <<listing-ADE-realworld-ADE1>>.
 
 [[listing-ADE-realworld-shapechange1]]
 .Example of ShapeChange configuration file for converting from Enterprise Architect UML conceptual models to ADE schemas.
@@ -124,7 +123,7 @@ And derived https://github.com/nob140/CityGML3_ADE/blob/main/AutomaticConversion
 ----
 
 [[listing-ADE-realworld-ADE1]]
-.ADE schema example document derived from UML conceptual models.
+.Example of ADE schema document derived from UML conceptual models.
 [source,XML]
 ----
 <?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:bldg="http://www.opengis.net/citygml/building/3.0" ...  xmlns:uro="https://www.chisou.go.jp/tiiki/toshisaisei/itoshisaisei/iur/uro/1.5" elementFormDefault="qualified" targetNamespace="https://www.chisou.go.jp/tiiki/toshisaisei/itoshisaisei/iur/uro/1.5" version="1.5.1">
@@ -316,67 +315,67 @@ And derived https://github.com/nob140/CityGML3_ADE/blob/main/AutomaticConversion
 
 *Example 3: CityGML 3.0 building models adopting converted ADE schemas*
 
-https://www.mlit.go.jp/plateau/[the Project PLATEAU] has launched by MLIT (Ministry of Land, Infrastructure, Transport and Tourism) Japan in 2020, and developed 3D city models more than 10 million buildings of 56 cities, over 10,000km2 in Japan within one year. The 3D city models has implemented using Urban Planning ADE and published as Open Data (CC BY 4.0/ODbL).
+https://www.mlit.go.jp/plateau/[The Project PLATEAU] has launched by MLIT (Ministry of Land, Infrastructure, Transport and Tourism) Japan, and developed 3D city models more than 10 million buildings of 56 cities, over 10,000km2 in Japan in 2020. The 3D city models has implemented using Urban Planning ADE and published as Open Data (CC BY 4.0/ODbL).
 
-The <<figure-ADE-realworld-step2>> illustrates sample building data, and the <<listing-ADE-realworld-gml1>> shows example of the converted data from CityGML 2.0 building models to CityGML 3.0. Note that this conversion has operated manually by checking the ADE schema carefully. Though there are converters of CityGML 2.0 and CityGML 3.0 such as https://github.com/tum-gis/citygml2-to-citygml3[citygml2-to-citygml3], data conversion using ADE is a challenge in the future.
+The <<figure-ADE-realworld-step2>> illustrates sample building data, and the <<listing-ADE-realworld-gml1>> shows example of https://github.com/nob140/CityGML3_ADE/blob/main/AutomaticConversion/53394517_bldg_6697_op2_CityGML3.gml[the converted GML instance document] from CityGML 2.0 building models to CityGML 3.0. Note that this conversion has operated manually by checking the ADE schema carefully. Though there are converters of CityGML 2.0 and CityGML 3.0 such as https://github.com/tum-gis/citygml2-to-citygml3[citygml2-to-citygml3], data conversion using ADE is a challenge in the future.
 
 [[figure-ADE-realworld-step2]]
 .Meiji Memorial Picture Gallery (Mesh ID: 53394517, Building ID: 13104-bldg-53) from https://www.geospatial.jp/ckan/dataset/plateau-tokyo23ku-citygml-2020[the Project PLATEAU].
 image::images/53394517_bldg_6697_MeijiMemorialPictureGallery_CityGML2.png[align="center"]
 
 [[listing-ADE-realworld-gml1]]
-.GML instance document for the example of using derived ADE.
+.Example of CityGML 3.0 GML instance document using converted ADE schema.
 [source,XML]
 ----
 <?xml version="1.0" encoding="UTF-8"?>
 <core:CityModel xmlns:uro="https://www.chisou.go.jp/tiiki/toshisaisei/itoshisaisei/iur/uro/1.5" ...
 xsi:schemaLocation="https://www.chisou.go.jp/tiiki/toshisaisei/itoshisaisei/iur/uro/1.5 ./urbanObject_CityGML3.xsd ...">
-	<gml:boundedBy> ... </gml:boundedBy>
-	<core:cityObjectMember>
-		<bldg:Building gml:id="BLD_77ca1a15-3b35-4386-8f86-152ed71c4c64">
-			<core:genericAttribute> ... </core:genericAttribute>
-            ...
-			<core:boundary> ... </core:boundary>
-            ...
-			<core:lod0MultiSurface> ... </core:lod0MultiSurface>
-			<core:lod1Solid> ... </core:lod1Solid>
-			<core:lod2Solid> ... </core:lod2Solid>
-			<con:height> ... </con:height>
-			<bldg:address> ... </bldg:address>
-			<bldg:adeOfAbstractBuilding>
-				<uro:BuildingProperties>
-					<uro:buildingDetails>
-						<uro:BuildingDetails>
-							<uro:buildingRoofEdgeArea uom="m2">2513.85520</uro:buildingRoofEdgeArea>
-							<uro:districtsAndZonesType codeSpace="../codelists/Common_districtsAndZonesType.xml">4</uro:districtsAndZonesType>
-							<uro:prefecture codeSpace="../codelists/Common_prefecture.xml">13</uro:prefecture>
-							<uro:city codeSpace="../codelists/Common_localPublicAuthorities.xml">13104</uro:city>
-							<uro:surveyYear>2016</uro:surveyYear>
-						</uro:BuildingDetails>
-					</uro:buildingDetails>
-					<uro:extendedAttribute>
-						<uro:KeyValuePair>
-							<uro:key codeSpace="../codelists/extendedAttribute_key.xml">2</uro:key>
-							<uro:codeValue codeSpace="../codelists/extendedAttribute_key2.xml">2</uro:codeValue>
-						</uro:KeyValuePair>
-					</uro:extendedAttribute>
-					<uro:extendedAttribute>
-						<uro:KeyValuePair>
-							<uro:key codeSpace="../codelists/extendedAttribute_key.xml">105</uro:key>
-							<uro:codeValue codeSpace="../codelists/extendedAttribute_key105.xml">2</uro:codeValue>
-						</uro:KeyValuePair>
-					</uro:extendedAttribute>
-					<uro:extendedAttribute>
-						<uro:KeyValuePair>
-							<uro:key codeSpace="../codelists/extendedAttribute_key.xml">106</uro:key>
-							<uro:codeValue codeSpace="../codelists/extendedAttribute_key106.xml">20</uro:codeValue>
-						</uro:KeyValuePair>
-					</uro:extendedAttribute>
-				</uro:BuildingProperties>
-			</bldg:adeOfAbstractBuilding>
-		</bldg:Building>
-	</core:cityObjectMember>
-	<core:appearanceMember> ... </core:appearanceMember>
+  <gml:boundedBy> ... </gml:boundedBy>
+  <core:cityObjectMember>
+    <bldg:Building gml:id="BLD_77ca1a15-3b35-4386-8f86-152ed71c4c64">
+      <core:genericAttribute> ... </core:genericAttribute>
+      ...
+      <core:boundary> ... </core:boundary>
+      ...
+      <core:lod0MultiSurface> ... </core:lod0MultiSurface>
+      <core:lod1Solid> ... </core:lod1Solid>
+      <core:lod2Solid> ... </core:lod2Solid>
+      <con:height> ... </con:height>
+      <bldg:address> ... </bldg:address>
+      <bldg:adeOfAbstractBuilding>
+        <uro:BuildingProperties>
+          <uro:buildingDetails>
+            <uro:BuildingDetails>
+              <uro:buildingRoofEdgeArea uom="m2">2513.85520</uro:buildingRoofEdgeArea>
+              <uro:districtsAndZonesType codeSpace="../codelists/Common_districtsAndZonesType.xml">4</uro:districtsAndZonesType>
+              <uro:prefecture codeSpace="../codelists/Common_prefecture.xml">13</uro:prefecture>
+              <uro:city codeSpace="../codelists/Common_localPublicAuthorities.xml">13104</uro:city>
+              <uro:surveyYear>2016</uro:surveyYear>
+            </uro:BuildingDetails>
+          </uro:buildingDetails>
+          <uro:extendedAttribute>
+            <uro:KeyValuePair>
+              <uro:key codeSpace="../codelists/extendedAttribute_key.xml">2</uro:key>
+              <uro:codeValue codeSpace="../codelists/extendedAttribute_key2.xml">2</uro:codeValue>
+            </uro:KeyValuePair>
+          </uro:extendedAttribute>
+          <uro:extendedAttribute>
+            <uro:KeyValuePair>
+              <uro:key codeSpace="../codelists/extendedAttribute_key.xml">105</uro:key>
+              <uro:codeValue codeSpace="../codelists/extendedAttribute_key105.xml">2</uro:codeValue>
+            </uro:KeyValuePair>
+          </uro:extendedAttribute>
+          <uro:extendedAttribute>
+            <uro:KeyValuePair>
+              <uro:key codeSpace="../codelists/extendedAttribute_key.xml">106</uro:key>
+              <uro:codeValue codeSpace="../codelists/extendedAttribute_key106.xml">20</uro:codeValue>
+            </uro:KeyValuePair>
+          </uro:extendedAttribute>
+        </uro:BuildingProperties>
+      </bldg:adeOfAbstractBuilding>
+    </bldg:Building>
+  </core:cityObjectMember>
+  <core:appearanceMember> ... </core:appearanceMember>
 </core:CityModel>
 ----
 
