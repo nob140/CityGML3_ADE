@@ -2,14 +2,13 @@
 
 ADE conversion test from CityGML 2.0 ADE to CityGML 3.0 ADE
 
+Draft document:
+- https://github.com/nob140/CityGML3_ADE/blob/main/document/annex-examples-ADE-realworld.adoc
+
 ADE:
 - Source: [urbanObject.xsd v1.5](https://www.chisou.go.jp/tiiki/toshisaisei/itoshisaisei/iur/schemas/uro/1.5/urbanObject.xsd) (Urban Object Module) from [i-Urban Revitalization](https://www.chisou.go.jp/tiiki/toshisaisei/itoshisaisei/iur/index.html) (aka i-uR, Urban Planning ADE)
-- Automatically Converted ADE (by @TatjanaKutzner): [urbanObject_CityGML3.xsd](https://github.com/nob140/CityGML3_ADE/blob/main/AutomaticConversion/urbanObject_CityGML3.xsd)
+- Automatically Converted ADE using ShapeChange (by @TatjanaKutzner): [urbanObject_CityGML3.xsd](https://github.com/nob140/CityGML3_ADE/blob/main/AutomaticConversion/urbanObject_CityGML3.xsd)
 - Manually Converted ADE (by @nob140 and @clausnagel): [urbanObject_CityGML3.xsd](https://github.com/nob140/CityGML3_ADE/blob/main/ManualConversion/urbanObject_CityGML3.xsd)
-
-- Note:
-  - Automatically converted ADE using ShapeChange developed by @TatjanaKutzner
-  - Manually converted ADE developed by @nob140 and @clausnagel
 
 CityGML Data:
 - Data Source: Tokyo Station in 53394611_bldg_6697_op2.gml and Meiji Memorial Picture Gallery in 53394517_bldg_6697_op2.gml from [Project PLATEAU](https://www.geospatial.jp/ckan/dataset/plateau-tokyo23ku) (CC BY 4.0)
